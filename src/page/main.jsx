@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useLocation } from "react-router-dom";
+import { Button } from "@mui/material";
 import "../App.css";
 
 function Main() {
-  const data=useLocation()
-  console.log(data.state)
+  const data = useLocation();
+  console.log(data.state);
   var higestScore = localStorage.getItem("Myscore");
   var score = 0;
   let inputDir = { x: 0, y: 0 };
@@ -128,6 +133,23 @@ function Main() {
     }
   });
 
+  const Top=(()=>{
+    inputDir.x = 0;
+    inputDir.y = -1;
+  })
+  const Down=(()=>{
+    inputDir.x = 0;
+    inputDir.y = 1;
+  })
+  const Right=(()=>{
+    inputDir.x = 1;
+    inputDir.y = 0;
+  })
+  const Left=(()=>{
+    inputDir.x = -1;
+    inputDir.y = 0;
+  })
+
   return (
     <>
       <div className="main">
@@ -136,6 +158,23 @@ function Main() {
         <div id="bord" className="main-contain"></div>
         <div>
           <img className="snack-img" alt="snack-img" src="./pngegg.png"></img>
+        </div>
+        <div className="mobile-btn">
+          <div className="left-right-top-btn">
+          <div className="top-btn-main">
+              <Button  onClick={()=>Top()} id="top-btn"><ArrowDropUpIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+            </div>
+            <div className="left-right-btn">
+            <Button onClick={()=>Left()} id="top-btn"><ArrowLeftIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+            <Button onClick={()=>Right()} id="top-btn"><ArrowRightIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+            </div>
+          </div>
+          <div className="top-down-btn">
+            
+            <div className="down-btn-main">
+            <Button onClick={()=>Down()} id="top-btn"><ArrowDropDownIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+            </div>
+          </div>
         </div>
       </div>
     </>
