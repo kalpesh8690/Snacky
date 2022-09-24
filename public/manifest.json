@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "pngegg.png",
+      "src": "S192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "pngegg.png",
+      "src": "S512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_image": "1127551.jpg"
+  "background_color": "#3B2400"
 }
