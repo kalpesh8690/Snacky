@@ -1,18 +1,27 @@
 import React from 'react'
+import MyClick from "../sound/click.wav"
 import "../App.css"
 import { useNavigate } from 'react-router-dom'
 
 function Level() {
     const navigate=useNavigate()
+    const click=new Audio(MyClick);
+
+    const music = require("../sound/music.mp3");
     const Hard=(()=>{
+      click.play();
         navigate("/main",{state:8})
     })
     const Normal=(()=>{
+      click.play();
         navigate("/main",{state:4})
     })
+    const wh=window.screen.height;
+    const winHight=`${wh}px`
   return (
     <>
-    <div id="level-box-main">
+    <div style={{height:winHight}} id="level-box-main">
+    <audio src={music}  autoPlay />
         <div className="level-box">
           <input
             className="normal"

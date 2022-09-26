@@ -4,19 +4,23 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useLocation } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import Sbite from "../sound/bite.mp3"
+import MyStart from "../sound/start.wav"
 import "../App.css";
 
 function Main() {
   const data = useLocation();
   console.log(data.state);
+  let bite=new Audio(Sbite);
+  let gameStart=new Audio(MyStart);
   var higestScore = localStorage.getItem("Myscore");
   var score = 0;
   let inputDir = { x: 0, y: 0 };
   let lastPaintTime = 0;
   let snackAry = [{ x: 2, y: 2 }];
   let food = { x: 5, y: 10 };
-
+  gameStart.play();
   function main(ctime) {
     window.requestAnimationFrame(main);
     if ((ctime - lastPaintTime) / 1000 < 1 / data.state) {
@@ -47,6 +51,7 @@ function Main() {
     var scoreBord = document.getElementById("score-main");
     scoreBord.innerHTML = `Score:${score}`;
     if (snackAry[0].y === food.y && snackAry[0].x === food.x) {
+      bite.play();
       snackAry.unshift({
         x: snackAry[0].x + inputDir.x,
         y: snackAry[0].y + inputDir.y,
@@ -149,10 +154,11 @@ function Main() {
     inputDir.x = -1;
     inputDir.y = 0;
   })
-
+const wh=window.screen.height;
+const winHight=`${wh}px`
   return (
     <>
-      <div className="main">
+      <div style={{height:winHight}} className="main">
         <div id="highest-score">Highest Score:{higestScore}</div>
         <div id="score-main"></div>
         <div id="bord" className="main-contain"></div>
