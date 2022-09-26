@@ -17,7 +17,7 @@ function Level() {
         navigate("/main",{state:4})
     })
     const wh=window.screen.height;
-    const reScale=wh;
+    const reScale=wh-30;
     const winHight=`${reScale}px`
   return (
     <>
