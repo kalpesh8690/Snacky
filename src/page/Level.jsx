@@ -17,7 +17,8 @@ function Level() {
         navigate("/main",{state:4})
     })
     const wh=window.screen.height;
-    const winHight=`${wh}px`
+    const reScale=wh;
+    const winHight=`${reScale}px`
   return (
     <>
     <div style={{height:winHight}} id="level-box-main">

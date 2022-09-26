@@ -310,7 +310,8 @@
         justify-content: unset;
         align-items: center;
         display: flex;
-        min-width: auto;
+        min-width: unset;
+        width: auto;
         
     }
     .play-box{
@@ -425,7 +426,7 @@
         margin: 0;
         padding: 0;
         width:50vw;
-        
+        -moz-window-shadow: 2px 2px 3px black;
     }
     
 }

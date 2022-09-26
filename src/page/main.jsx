@@ -1,19 +1,19 @@
 import React from "react";
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useLocation } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
-import Sbite from "../sound/bite.mp3"
-import MyStart from "../sound/start.wav"
+import Sbite from "../sound/bite.mp3";
+import MyStart from "../sound/start.wav";
 import "../App.css";
 
 function Main() {
   const data = useLocation();
   console.log(data.state);
-  let bite=new Audio(Sbite);
-  let gameStart=new Audio(MyStart);
+  let bite = new Audio(Sbite);
+  let gameStart = new Audio(MyStart);
   var higestScore = localStorage.getItem("Myscore");
   var score = 0;
   let inputDir = { x: 0, y: 0 };
@@ -138,27 +138,28 @@ function Main() {
     }
   });
 
-  const Top=(()=>{
+  const Top = () => {
     inputDir.x = 0;
     inputDir.y = -1;
-  })
-  const Down=(()=>{
+  };
+  const Down = () => {
     inputDir.x = 0;
     inputDir.y = 1;
-  })
-  const Right=(()=>{
+  };
+  const Right = () => {
     inputDir.x = 1;
     inputDir.y = 0;
-  })
-  const Left=(()=>{
+  };
+  const Left = () => {
     inputDir.x = -1;
     inputDir.y = 0;
-  })
-const wh=window.screen.height;
-const winHight=`${wh}px`
+  };
+  const wh = window.screen.height;
+  const reScale = wh;
+  const winHight = `${reScale}px`;
   return (
     <>
-      <div style={{height:winHight}} className="main">
+      <div style={{ height: winHight }} className="main">
         <div id="highest-score">Highest Score:{higestScore}</div>
         <div id="score-main"></div>
         <div id="bord" className="main-contain"></div>
@@ -167,18 +168,49 @@ const winHight=`${wh}px`
         </div>
         <div className="mobile-btn">
           <div className="left-right-top-btn">
-          <div className="top-btn-main">
-              <Button  onClick={()=>Top()} id="top-btn"><ArrowDropUpIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+            <div className="top-btn-main">
+              <Button onClick={() => Top()} id="top-btn">
+                <ArrowDropUpIcon
+                  sx={{
+                    backgroundColor: "rgba(15, 15, 15,.5)",
+                    border: "2px solid grey",
+                    fontSize: "60px",
+                  }}
+                />
+              </Button>
             </div>
             <div className="left-right-btn">
-            <Button onClick={()=>Left()} id="top-btn"><ArrowLeftIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
-            <Button onClick={()=>Right()} id="top-btn"><ArrowRightIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+              <Button onClick={() => Left()} id="top-btn">
+                <ArrowLeftIcon
+                  sx={{
+                    backgroundColor: "rgba(15, 15, 15,.5)",
+                    border: "2px solid grey",
+                    fontSize: "60px",
+                  }}
+                />
+              </Button>
+              <Button onClick={() => Right()} id="top-btn">
+                <ArrowRightIcon
+                  sx={{
+                    backgroundColor: "rgba(15, 15, 15,.5)",
+                    border: "2px solid grey",
+                    fontSize: "60px",
+                  }}
+                />
+              </Button>
             </div>
           </div>
           <div className="top-down-btn">
-            
             <div className="down-btn-main">
-            <Button onClick={()=>Down()} id="top-btn"><ArrowDropDownIcon sx={{backgroundColor: "rgba(15, 15, 15,.5)",border:"2px solid grey",fontSize:"60px"}}/></Button>
+              <Button onClick={() => Down()} id="top-btn">
+                <ArrowDropDownIcon
+                  sx={{
+                    backgroundColor: "rgba(15, 15, 15,.5)",
+                    border: "2px solid grey",
+                    fontSize: "60px",
+                  }}
+                />
+              </Button>
             </div>
           </div>
         </div>

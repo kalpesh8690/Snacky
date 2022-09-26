@@ -17,7 +17,8 @@ function StartGame() {
     navigate("./level")
   };
   const wh=window.screen.height;
-  const winHight=`${wh}px`
+  const reScale=wh;
+  const winHight=`${reScale}px`
   return (
     <>
       <div style={{height:winHight}} id="play-box-main">
